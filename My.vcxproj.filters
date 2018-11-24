@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="소스 파일\Shape">
+      <UniqueIdentifier>{a243dbeb-3a8f-4005-afe0-4be05360718f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Shape">
+      <UniqueIdentifier>{16fcfbdb-5c20-4cd7-880a-6353e156f947}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\My">
+      <UniqueIdentifier>{7a5183c7-58b0-4a83-98b0-49aa5705c410}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="My.h">
@@ -30,17 +39,20 @@
     <ClInclude Include="MyDoc.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="MyView.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Resource.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="CBoard.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Shape.h">
+      <Filter>헤더 파일\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="MyView.h">
+      <Filter>헤더 파일\My</Filter>
+    </ClInclude>
     <ClInclude Include="CMenuBar.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>헤더 파일\My</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +76,9 @@
     </ClCompile>
     <ClCompile Include="CMenuBar.cpp">
       <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Shape.cpp">
+      <Filter>소스 파일\Shape</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
