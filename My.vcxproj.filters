@@ -13,40 +13,28 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="소스 파일\Shape">
-      <UniqueIdentifier>{a243dbeb-3a8f-4005-afe0-4be05360718f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="헤더 파일\Shape">
-      <UniqueIdentifier>{16fcfbdb-5c20-4cd7-880a-6353e156f947}</UniqueIdentifier>
-    </Filter>
     <Filter Include="헤더 파일\My">
       <UniqueIdentifier>{7a5183c7-58b0-4a83-98b0-49aa5705c410}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\Setting">
+      <UniqueIdentifier>{a243dbeb-3a8f-4005-afe0-4be05360718f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\Setting">
+      <UniqueIdentifier>{16fcfbdb-5c20-4cd7-880a-6353e156f947}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="헤더 파일\etc">
+      <UniqueIdentifier>{4bf37dce-fa6c-458e-a0ff-f9a156f2b6c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\etc">
+      <UniqueIdentifier>{42d929f9-cde0-41ee-891e-81bb950ed2df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\My">
+      <UniqueIdentifier>{62a7014f-bcb2-4da3-a0ab-688cc851802e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="My.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="stdafx.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="MainFrm.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="MyDoc.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="CBoard.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Shape.h">
-      <Filter>헤더 파일\Shape</Filter>
+      <Filter>헤더 파일\Setting</Filter>
     </ClInclude>
     <ClInclude Include="MyView.h">
       <Filter>헤더 파일\My</Filter>
@@ -54,31 +42,52 @@
     <ClInclude Include="CMenuBar.h">
       <Filter>헤더 파일\My</Filter>
     </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>헤더 파일\My</Filter>
+    </ClInclude>
+    <ClInclude Include="Setting.h">
+      <Filter>헤더 파일\Setting</Filter>
+    </ClInclude>
+    <ClInclude Include="My.h">
+      <Filter>헤더 파일\etc</Filter>
+    </ClInclude>
+    <ClInclude Include="MyDoc.h">
+      <Filter>헤더 파일\etc</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>헤더 파일\etc</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>헤더 파일\etc</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>헤더 파일\etc</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="My.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="Shape.cpp">
+      <Filter>소스 파일\Setting</Filter>
     </ClCompile>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="MainFrm.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="MyDoc.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="MyView.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="CBoard.cpp">
-      <Filter>소스 파일</Filter>
+    <ClCompile Include="Setting.cpp">
+      <Filter>소스 파일\Setting</Filter>
     </ClCompile>
     <ClCompile Include="CMenuBar.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\My</Filter>
     </ClCompile>
-    <ClCompile Include="Shape.cpp">
-      <Filter>소스 파일\Shape</Filter>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>소스 파일\My</Filter>
+    </ClCompile>
+    <ClCompile Include="MyView.cpp">
+      <Filter>소스 파일\My</Filter>
+    </ClCompile>
+    <ClCompile Include="My.cpp">
+      <Filter>소스 파일\etc</Filter>
+    </ClCompile>
+    <ClCompile Include="MyDoc.cpp">
+      <Filter>소스 파일\etc</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>소스 파일\etc</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
