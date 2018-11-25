@@ -179,23 +179,25 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="CBoard.h" />
     <ClInclude Include="CMenuBar.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="My.h" />
     <ClInclude Include="MyDoc.h" />
     <ClInclude Include="MyView.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="Setting.h" />
+    <ClInclude Include="Shape.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CBoard.cpp" />
     <ClCompile Include="CMenuBar.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="My.cpp" />
     <ClCompile Include="MyDoc.cpp" />
     <ClCompile Include="MyView.cpp" />
+    <ClCompile Include="Setting.cpp" />
+    <ClCompile Include="Shape.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
