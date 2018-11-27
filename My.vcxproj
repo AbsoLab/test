@@ -180,6 +180,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CMenuBar.h" />
+    <ClInclude Include="ColorDlg.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="My.h" />
     <ClInclude Include="MyDoc.h" />
@@ -192,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMenuBar.cpp" />
+    <ClCompile Include="ColorDlg.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="My.cpp" />
     <ClCompile Include="MyDoc.cpp" />
