@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Shape.h"
 
-
 // 생성자
 Shape::Shape(CPoint pt1, CPoint pt2, int type, int thickness, int line_color, int fill_color) {
 
@@ -25,17 +24,76 @@ Shape::Shape(CPoint pt1, CPoint pt2, int type, int thickness, int line_color, in
 	this->fill_color = fill_color;
 }
 
-// 크기를 반환
-CRect Shape::GetRect() { 
+// 필드값 반환
+const CRect Shape::GetRect() { 
 	
 	return size;
 }
 
-// 크기 변경
-void Shape::SetSize(int width, int height) {
+const int Shape::GetThickness() {
 
-	size.right = size.left + width;
-	size.bottom = size.top + height;
+	return thickness;
+}
+
+const int Shape::GetFillColor() {
+
+	return fill_color;
+}
+
+const int Shape::GetLineColor() {
+
+	return line_color;
+}
+
+// 필드값 설정
+void Shape::SetThickness(int thickness) {
+
+	this->thickness = thickness;
+}
+
+void Shape::SetFillColor(int fill_color) {
+
+	this->fill_color = fill_color;
+}
+
+void Shape::SetLineColor(int line_color) {
+
+	this->line_color = line_color;
+}
+
+
+// 크기 재설정
+void Shape::SetSize(CPoint pt, int index) {
+	
+	/* index
+	 * 0 : LeftTop
+	 * 1 : RightTop
+	 * 2 : LeftBottom
+	 * 3 : RightBottom
+	*/ 
+
+	switch (index) {
+
+	case 0:
+		size.left = pt.x;
+		size.top = pt.y;
+		break;
+
+	case 1:
+		size.right = pt.x;
+		size.top = pt.y;
+		break;
+
+	case 2:
+		size.left = pt.x;
+		size.bottom = pt.y;
+		break;
+
+	case 3:
+		size.right = pt.x;
+		size.bottom = pt.y;
+		break;
+	}
 }
 
 // 위치 변경
@@ -60,41 +118,3 @@ bool Shape::IsClicked(CPoint pt)
 
 	return false;
 }
-
-
-
-// 테두리 두께
-int Shape::GetThickness() {
-
-	return thickness;
-}
-
-void Shape::SetThickness(int thickness) {
-
-	this->thickness = thickness;
-}
-
-
-// 채우기 색
-int Shape::GetFillColor() {
-
-	return fill_color;
-}
-
-void Shape::SetFillColor(int fill_color) {
-
-	this->fill_color = fill_color;
-}
-
-
-// 테두리 색
-int Shape::GetLineColor() {
-
-	return line_color;
-}
-
-void Shape::SetLineColor(int line_color) {
-
-	this->line_color = line_color;
-}
-
