@@ -5,8 +5,20 @@
 // 생성자
 Shape::Shape(CPoint pt1, CPoint pt2, int type, int thickness, int line_color, int fill_color) {
 
+	// LT RB 크기순으로 조정
+	if (pt1.x > pt2.x) {
+		int temp = pt1.x;
+		pt1.x = pt2.x;
+		pt2.x = temp;
+	}
+	if (pt1.y > pt2.y) {
+		int temp = pt1.y;
+		pt1.y = pt2.y;
+		pt2.y = temp;
+	}
+
 	size = CRect(pt1, pt2);
-	
+
 	this->type = type;
 	this->thickness = thickness;
 	this->line_color = line_color;
