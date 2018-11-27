@@ -35,6 +35,21 @@ void Shape::Move(CPoint pt) {
 	size.bottom += pt.y;
 }
 
+// 선택됐는지 확인
+bool Shape::IsClicked(CPoint pt)
+{
+	if (size.left <= pt.x && pt.x <= size.right) {
+
+		if (size.top <= pt.y && pt.y <= size.bottom) {
+
+			return true;
+		}
+	}
+
+	return false;
+}
+
+
 
 // 테두리 두께
 int Shape::GetThickness() {

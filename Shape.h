@@ -18,6 +18,7 @@ public:
 	CRect GetRect();
 	void SetSize(int width, int height);
 	void Move(CPoint pt);
+	bool IsClicked(CPoint pt);
 
 	int GetThickness();
 	void SetThickness(int thickness);
