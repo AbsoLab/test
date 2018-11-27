@@ -39,5 +39,7 @@ public:
 	// 선택한 위치가 도형 안에 있는지 확인
 	bool IsClicked(CPoint pt);
 
+	// LT RB 정렬
+	void SortPosition();
 };
 

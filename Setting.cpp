@@ -208,9 +208,9 @@ int Setting::SearchResizing(CPoint pt)
 
 	for (int i = 0; i < 4; i++) {
 		
-		if (resizeRect[i].left < pt.x && pt.x < resizeRect[i].right) {
+		if (resizeRect[i].left <= pt.x && pt.x <= resizeRect[i].right) {
 			
-			if (resizeRect[i].top < pt.y && pt.y < resizeRect[i].bottom) {
+			if (resizeRect[i].top <= pt.y && pt.y <= resizeRect[i].bottom) {
 				
 				return i;
 			}

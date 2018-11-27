@@ -3,20 +3,9 @@
 
 // 생성자
 Shape::Shape(CPoint pt1, CPoint pt2, int type, int thickness, int line_color, int fill_color) {
-
-	// LT RB 크기순으로 조정
-	if (pt1.x > pt2.x) {
-		int temp = pt1.x;
-		pt1.x = pt2.x;
-		pt2.x = temp;
-	}
-	if (pt1.y > pt2.y) {
-		int temp = pt1.y;
-		pt1.y = pt2.y;
-		pt2.y = temp;
-	}
-
+	
 	size = CRect(pt1, pt2);
+	SortPosition();
 
 	this->type = type;
 	this->thickness = thickness;
@@ -94,6 +83,8 @@ void Shape::SetSize(CPoint pt, int index) {
 		size.bottom = pt.y;
 		break;
 	}
+
+	SortPosition();
 }
 
 // 위치 변경
@@ -117,4 +108,24 @@ bool Shape::IsClicked(CPoint pt)
 	}
 
 	return false;
+}
+
+// LT RB 크기순으로 조정
+void Shape::SortPosition()
+{
+	CPoint pt1 = size.TopLeft();
+	CPoint pt2 = size.BottomRight();
+
+	if (pt1.x > pt2.x) {
+		int temp = pt1.x;
+		pt1.x = pt2.x;
+		pt2.x = temp;
+	}
+	if (pt1.y > pt2.y) {
+		int temp = pt1.y;
+		pt1.y = pt2.y;
+		pt2.y = temp;
+	}
+
+	size = CRect(pt1, pt2);
 }
