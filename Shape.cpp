@@ -13,7 +13,7 @@ Shape::Shape(CPoint pt1, CPoint pt2, int type, int thickness, int line_color, in
 	this->fill_color = fill_color;
 }
 
-
+// 크기를 반환
 CRect Shape::GetRect() { 
 	
 	return size;
@@ -35,7 +35,7 @@ void Shape::Move(CPoint pt) {
 	size.bottom += pt.y;
 }
 
-// 선택됐는지 확인
+// 선택한 위치가 도형 안에 있는지 확인
 bool Shape::IsClicked(CPoint pt)
 {
 	if (size.left <= pt.x && pt.x <= size.right) {
