@@ -20,6 +20,7 @@ private:
 public:
 	// 필드값 반환
 	const CRect GetRect();
+	const int GetType();
 	const int GetThickness();
 	const int GetFillColor();
 	const int GetLineColor();

@@ -125,7 +125,7 @@ void Setting::Drag(CPoint pt1, CPoint pt2)
 		}
 
 	}
-	else if (selected_type == 1) {
+	else {
 
 		AddShape(pt1, pt2);
 	}

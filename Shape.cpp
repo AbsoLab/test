@@ -19,6 +19,11 @@ const CRect Shape::GetRect() {
 	return size;
 }
 
+const int Shape::GetType()
+{
+	return type;
+}
+
 const int Shape::GetThickness() {
 
 	return thickness;
