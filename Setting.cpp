@@ -12,7 +12,7 @@ Setting::Setting() {
 	selected_type = 0;
 	selected_color = RGB(0, 0, 0);
 	selected_thickness = 1;
-
+	selected_shape = -1;
 }
 
 
