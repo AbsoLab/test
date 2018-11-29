@@ -20,6 +20,7 @@ private:
 	int selected_shape;			// 선택한 도형 (index)
 	CRect* resizeRect;			// 크기 조정 버튼
 
+
 public:
 	// 필드값 반환
 	const Shape GetShape(int index);
@@ -32,12 +33,17 @@ public:
 	void SetSelectedThickness(int thickness);
 	void SetSelectedColor(int color);
 	
+
 public:
 	// 도형 선택
 	void SelectShape(CPoint pt);
 
 	// 드래그 동작
 	void Drag(CPoint pt1, CPoint pt2);
+
+	// 도형 색칠하기
+	void FillShape();
+
 
 private:
 	// 크기 조절 버튼

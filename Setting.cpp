@@ -129,7 +129,17 @@ void Setting::Drag(CPoint pt1, CPoint pt2)
 
 		AddShape(pt1, pt2);
 	}
-	
+}
+
+// 도형 색칠하기
+void Setting::FillShape()
+{
+	if (selected_shape == -1) {
+
+		return;
+	}
+
+	shape[selected_shape]->SetFillColor(selected_color);
 }
 
 
