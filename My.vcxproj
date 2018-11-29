@@ -180,6 +180,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CMenuBar.h" />
+    <ClInclude Include="ColorDlg.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="My.h" />
     <ClInclude Include="MyDoc.h" />
@@ -189,9 +190,11 @@
     <ClInclude Include="Shape.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TypeDlg.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMenuBar.cpp" />
+    <ClCompile Include="ColorDlg.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="My.cpp" />
     <ClCompile Include="MyDoc.cpp" />
@@ -204,6 +207,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="TypeDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="My.rc" />
