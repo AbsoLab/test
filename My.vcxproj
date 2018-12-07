@@ -216,6 +216,8 @@
     <None Include="res\My.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\..\Desktop\rect.bmp" />
+    <Image Include="..\..\..\Desktop\rect2.bmp" />
     <Image Include="res\My.ico" />
     <Image Include="res\MyDoc.ico" />
     <Image Include="res\Toolbar.bmp" />
