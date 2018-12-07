@@ -44,6 +44,12 @@ const int Setting::GetCount()
 	return count;
 }
 
+const int Setting::GetType() { 
+	
+	return selected_type;
+
+}
+
 bool Setting::IsSelected()
 {
 	if (selected_shape == -1) {

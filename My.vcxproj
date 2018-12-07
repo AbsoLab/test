@@ -181,6 +181,7 @@
   <ItemGroup>
     <ClInclude Include="CMenuBar.h" />
     <ClInclude Include="ColorDlg.h" />
+    <ClInclude Include="DrawView.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="My.h" />
     <ClInclude Include="MyDoc.h" />
@@ -195,6 +196,7 @@
   <ItemGroup>
     <ClCompile Include="CMenuBar.cpp" />
     <ClCompile Include="ColorDlg.cpp" />
+    <ClCompile Include="DrawView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="My.cpp" />
     <ClCompile Include="MyDoc.cpp" />
@@ -213,7 +215,11 @@
     <ResourceCompile Include="My.rc" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="res\AddCircle.cur" />
+    <None Include="res\AddRect.cur" />
+    <None Include="res\Move.cur" />
     <None Include="res\My.rc2" />
+    <None Include="res\Remove.cur" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\My.ico" />

@@ -26,6 +26,7 @@ public:
 	const Shape GetShape(int index);
 	const CRect GetResizeRect(int index);
 	const int GetCount();
+	const int GetType();
 	bool IsSelected();
 
 	// 필드값 설정
