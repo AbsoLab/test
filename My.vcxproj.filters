@@ -129,7 +129,13 @@
     <None Include="res\Move.cur">
       <Filter>리소스 파일</Filter>
     </None>
-    <None Include="res\cursor1.cur">
+    <None Include="res\Erase.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Fill.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Pipette.cur">
       <Filter>리소스 파일</Filter>
     </None>
   </ItemGroup>
