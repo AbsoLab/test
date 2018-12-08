@@ -217,6 +217,7 @@
   <ItemGroup>
     <None Include="res\AddCircle.cur" />
     <None Include="res\AddRect.cur" />
+    <None Include="res\cursor1.cur" />
     <None Include="res\Move.cur" />
     <None Include="res\My.rc2" />
     <None Include="res\Remove.cur" />

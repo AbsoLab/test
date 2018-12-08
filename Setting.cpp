@@ -50,6 +50,11 @@ const int Setting::GetType() {
 
 }
 
+const int Setting::GetColor()
+{
+	return selected_color;
+}
+
 bool Setting::IsSelected()
 {
 	if (selected_shape == -1) {
@@ -61,7 +66,7 @@ bool Setting::IsSelected()
 }
 
 // 필드값 설정
-void Setting::SetSelectedType(int type)
+void Setting::SetType(int type)
 {
 	/* 0 : CURSOR
 	 * 1 : Rectangle
@@ -76,7 +81,7 @@ void Setting::SetSelectedType(int type)
 	}
 }
 
-void Setting::SetSelectedThickness(int thickness)
+void Setting::SetThickness(int thickness)
 {
 	if (1 <= thickness && thickness <= 5) {
 
@@ -84,7 +89,7 @@ void Setting::SetSelectedThickness(int thickness)
 	}
 }
 
-void Setting::SetSelectedColor(int color)
+void Setting::SetColor(int color)
 {
 	if (RGB(0, 0, 0) <= color && color <= RGB(255, 255, 255)) {
 

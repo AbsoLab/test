@@ -129,6 +129,9 @@
     <None Include="res\Move.cur">
       <Filter>리소스 파일</Filter>
     </None>
+    <None Include="res\cursor1.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\MyDoc.ico">

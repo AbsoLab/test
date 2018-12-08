@@ -27,12 +27,13 @@ public:
 	const CRect GetResizeRect(int index);
 	const int GetCount();
 	const int GetType();
+	const int GetColor();
 	bool IsSelected();
 
 	// 필드값 설정
-	void SetSelectedType(int type);
-	void SetSelectedThickness(int thickness);
-	void SetSelectedColor(int color);
+	void SetType(int type);
+	void SetThickness(int thickness);
+	void SetColor(int color);
 	
 
 public:
