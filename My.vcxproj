@@ -182,6 +182,7 @@
     <ClInclude Include="CMenuBar.h" />
     <ClInclude Include="ColorDlg.h" />
     <ClInclude Include="DrawView.h" />
+    <ClInclude Include="LineDlg.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="My.h" />
     <ClInclude Include="MyDoc.h" />
@@ -198,6 +199,7 @@
     <ClCompile Include="CMenuBar.cpp" />
     <ClCompile Include="ColorDlg.cpp" />
     <ClCompile Include="DrawView.cpp" />
+    <ClCompile Include="LineDlg.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="My.cpp" />
     <ClCompile Include="MyDoc.cpp" />

@@ -13,11 +13,14 @@ private:
 
 	int count;					// 그린 도형 개수
 
-	int selected_type;			// 선택한 타입
-	int selected_thickness;		// 선택한 두께 (1~)
-	int selected_color;			// 선택한 색깔 (RGB(r,g,b) 형태)
+	int type;			// 선택한 타입
 
-	int selected_shape;			// 선택한 도형 (index)
+	int thickness;		// 선택한 두께 (1~)
+	int color;			// 선택한 색깔 (RGB(r,g,b) 형태)
+	int line_opt;		// 테두리 옵션
+	int fill_opt;		// 채우기 옵션
+
+	int select;			// 선택한 도형 (index)
 	CRect* resizeRect;			// 크기 조정 버튼
 
 	/* type
@@ -39,6 +42,8 @@ public:
 	void SetType(int type);
 	void SetThickness(int thickness);
 	void SetColor(int color);
+	void SetLineOpt(int line_opt);
+	void SetFillOpt(int fill_opt);
 	
 
 public:
