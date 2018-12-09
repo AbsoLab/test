@@ -10,9 +10,19 @@ Setting::Setting() {
 	count = 0;
 
 	type = 0;
-	color = RGB(0, 0, 0);
 	thickness = 1;
+	color = RGB(0, 0, 0);
+	line_opt = 0;
+	fill_opt = 0;
+
 	select = -1;
+	resizeRect = NULL;
+}
+
+Setting::~Setting()
+{
+	if (shape != NULL) { delete(shape); }
+	if (resizeRect != NULL) { delete(resizeRect); }
 }
 
 
@@ -121,6 +131,7 @@ void Setting::SelectShape(CPoint pt, int color)
 {
 	select = SearchShape(pt);
 
+	if (resizeRect != NULL) { delete(resizeRect); }
 	resizeRect = SetResizeRect(select);
 
 	switch (type) {
@@ -139,7 +150,7 @@ void Setting::SelectShape(CPoint pt, int color)
 
 	case 12:
 		// 채우기
-		FillShape();
+		FillShape(select);
 		break;
 	}
 }
@@ -182,15 +193,45 @@ void Setting::Drag(CPoint pt1, CPoint pt2)
 	}
 }
 
-// 도형 색칠하기
-void Setting::FillShape()
+// 파일 열기
+bool Setting::FileOpen(CString path)
 {
-	if (select == -1) {
+	char buf[1024];
 
-		return;
+	FILE *fp = fopen((LPSTR)(LPCTSTR)path, "r");
+
+	if (fp == NULL) {
+
+		return false;
 	}
 
-	shape[select]->SetFillColor(color);
+	count = 0;
+	while (fgets(buf, 1024, fp) != NULL) {
+
+		shape[count++] = new Shape(buf);
+	}
+
+	fclose(fp);
+
+	return true;
+}
+
+// 파일 저장
+bool Setting::FileSave(CString path)
+{
+	FILE *fp = fopen((LPSTR)(LPCTSTR)path, "w");
+	
+	if (fp == NULL) {
+
+		return false;
+	}
+
+	for (int i = 0; i < count; i++) {
+
+		fputs(shape[i]->ChageFileData(), fp);
+	}
+
+	return true;
 }
 
 
@@ -260,6 +301,17 @@ void Setting::MoveShape(CPoint pt1, CPoint pt2, int index) {
 void Setting::ResizeShape(CPoint pt, int index)
 {
 	shape[select]->SetSize(pt, index);
+}
+
+// 도형 색칠하기
+void Setting::FillShape(int index)
+{
+	if (index == -1) {
+
+		return;
+	}
+
+	shape[index]->SetFillColor(color);
 }
 
 

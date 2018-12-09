@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "Shape.h"
 
+
 // 생성자
 Shape::Shape(CPoint pt1, CPoint pt2, int type, int line_color, int line_opt, int thickness, int fill_color, int fill_opt) {
 	
@@ -13,6 +14,26 @@ Shape::Shape(CPoint pt1, CPoint pt2, int type, int line_color, int line_opt, int
 	this->thickness = thickness;
 	this->fill_color = fill_color;
 	this->fill_opt = fill_color;
+}
+
+Shape::Shape(char* str)
+{
+	char* token[10];
+
+	for (int i = 0; i < 10; i++) {
+
+		token[i] = strtok(str, ":");
+	}
+
+	size = CRect(atoi(token[0]), atoi(token[1]), atoi(token[2]), atoi(token[3]));
+	SortPosition();
+
+	type = atoi(token[4]);
+	line_color = atoi(token[5]);
+	line_opt = atoi(token[6]);
+	thickness = atoi(token[7]);
+	fill_color = atoi(token[8]);
+	fill_opt = atoi(token[9]);
 }
 
 // 필드값 반환
@@ -155,4 +176,14 @@ void Shape::SortPosition()
 	}
 
 	size = CRect(pt1, pt2);
+}
+
+const char* Shape::ChageFileData()
+{
+	char str[1024];
+	sprintf(str, "%d:%d:%d:%d:%d:%d:%d:%d:%d:%d",
+		size.left, size.top, size.right, size.bottom,
+		type, line_color, line_opt, thickness, fill_color, fill_opt);
+
+	return str;
 }

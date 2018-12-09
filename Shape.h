@@ -5,6 +5,7 @@ class Shape {
 public:
 	// 생성자
 	Shape(CPoint pt1, CPoint pt2, int type, int line_color, int line_opt, int thickness, int fill_color, int fill_opt);
+	Shape(char* str);
 
 private:
 	CRect size;			// Shape의 크기
@@ -47,5 +48,7 @@ public:
 
 	// LT RB 정렬
 	void SortPosition();
-};
 
+	// 데이터 저장용 문자열
+	const char* ChageFileData();
+};
