@@ -9,8 +9,8 @@ public:
 private:
 	CRect size;			// Shape의 크기
 
-	int type;
-	int option;
+	int type;			// 타입 (사각, 원, 삼각, 오각, 육각, 팔각)
+	int option;			// ?
 
 	int fill_color;		// 채우기 색깔
 	int line_color;		// 테두리 색깔

@@ -9,34 +9,41 @@ public:
 	Setting();
 
 private:				
-	Shape **shape;		// 그린 도형들
+	Shape **shape;				// 그린 도형들
 
-	int count;			// 그린 도형 개수
+	int count;					// 그린 도형 개수
 
-	int selected_type;			// 선택한 타입 (커서, 사각형, 원 등등)
+	int selected_type;			// 선택한 타입
 	int selected_thickness;		// 선택한 두께 (1~)
 	int selected_color;			// 선택한 색깔 (RGB(r,g,b) 형태)
 
 	int selected_shape;			// 선택한 도형 (index)
 	CRect* resizeRect;			// 크기 조정 버튼
 
+	/* type
+	 * 0  : 기본 커서
+	 * 1~ : 사각형, 원, 삼각형, 오각형, 육각형, 팔각형
+	 * 10~: 지우개, 피펫, 채우기
+	 */
 
 public:
 	// 필드값 반환
 	const Shape GetShape(int index);
 	const CRect GetResizeRect(int index);
 	const int GetCount();
+	const int GetType();
+	const int GetColor();
 	bool IsSelected();
 
 	// 필드값 설정
-	void SetSelectedType(int type);
-	void SetSelectedThickness(int thickness);
-	void SetSelectedColor(int color);
+	void SetType(int type);
+	void SetThickness(int thickness);
+	void SetColor(int color);
 	
 
 public:
 	// 도형 선택
-	void SelectShape(CPoint pt);
+	void SelectShape(CPoint pt, int color);
 
 	// 드래그 동작
 	void Drag(CPoint pt1, CPoint pt2);
@@ -51,6 +58,9 @@ private:
 
 	// 도형 추가
 	void AddShape(CPoint pt1, CPoint pt2);
+
+	// 도형 삭제
+	void DeleteShape(int index);
 
 	// 도형 움직이기
 	void MoveShape(CPoint pt1, CPoint pt2, int index);

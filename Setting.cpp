@@ -44,6 +44,17 @@ const int Setting::GetCount()
 	return count;
 }
 
+const int Setting::GetType() { 
+	
+	return selected_type;
+
+}
+
+const int Setting::GetColor()
+{
+	return selected_color;
+}
+
 bool Setting::IsSelected()
 {
 	if (selected_shape == -1) {
@@ -55,22 +66,12 @@ bool Setting::IsSelected()
 }
 
 // 필드값 설정
-void Setting::SetSelectedType(int type)
-{
-	/* 0 : CURSOR
-	 * 1 : Rectangle
-	 * 2 : Circle
-	 * 3 : 
-	 * 4 :
-	 */
-
-	if (0 <= type && type <= 5) {
+void Setting::SetType(int type) {
 
 		selected_type = type;
-	}
 }
 
-void Setting::SetSelectedThickness(int thickness)
+void Setting::SetThickness(int thickness)
 {
 	if (1 <= thickness && thickness <= 5) {
 
@@ -78,7 +79,7 @@ void Setting::SetSelectedThickness(int thickness)
 	}
 }
 
-void Setting::SetSelectedColor(int color)
+void Setting::SetColor(int color)
 {
 	if (RGB(0, 0, 0) <= color && color <= RGB(255, 255, 255)) {
 
@@ -89,11 +90,31 @@ void Setting::SetSelectedColor(int color)
 
 
 // 도형 선택
-void Setting::SelectShape(CPoint pt)
+void Setting::SelectShape(CPoint pt, int color)
 {
 	selected_shape = SearchShape(pt);
 
 	resizeRect = SetResizeRect(selected_shape);
+
+	switch (selected_type) {
+
+	case 10:
+		//지우기 동작
+		DeleteShape(selected_shape);
+		selected_shape = -1;
+		resizeRect = NULL;
+		break;
+
+	case 11:
+		// 피펫
+		selected_color = color;
+		break;
+
+	case 12:
+		// 채우기
+		FillShape();
+		break;
+	}
 }
 
 // 드래그 동작
@@ -124,10 +145,13 @@ void Setting::Drag(CPoint pt1, CPoint pt2)
 			return;
 		}
 
-	}
-	else {
+	} else if (0 < selected_type && selected_type < 10) {
 
 		AddShape(pt1, pt2);
+	
+	} else if (10 < selected_type && selected_type < 100) {
+		
+
 	}
 }
 
@@ -179,6 +203,24 @@ CRect* Setting::SetResizeRect(int index)
 void Setting::AddShape(CPoint pt1, CPoint pt2) {
 
 	shape[count++] = new Shape(pt1, pt2, selected_type, selected_thickness, selected_color, -1);
+}
+
+// 도형 지우기
+void Setting::DeleteShape(int index) {
+
+	if (index >= count) {
+
+		return;
+	}
+
+	delete(shape[index]);
+
+	for (int i = index; i < count; i++) {
+
+		shape[i] = shape[i + 1];
+	}
+
+	shape[count--] = NULL;
 }
 
 // 도형 움직이기

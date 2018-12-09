@@ -36,13 +36,7 @@
     <ClInclude Include="Shape.h">
       <Filter>헤더 파일\Setting</Filter>
     </ClInclude>
-    <ClInclude Include="MyView.h">
-      <Filter>헤더 파일\My</Filter>
-    </ClInclude>
     <ClInclude Include="CMenuBar.h">
-      <Filter>헤더 파일\My</Filter>
-    </ClInclude>
-    <ClInclude Include="MainFrm.h">
       <Filter>헤더 파일\My</Filter>
     </ClInclude>
     <ClInclude Include="Setting.h">
@@ -69,6 +63,15 @@
     <ClInclude Include="TypeDlg.h">
       <Filter>헤더 파일\My</Filter>
     </ClInclude>
+    <ClInclude Include="MyView.h">
+      <Filter>헤더 파일\etc</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>헤더 파일\etc</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawView.h">
+      <Filter>헤더 파일\My</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Shape.cpp">
@@ -78,12 +81,6 @@
       <Filter>소스 파일\Setting</Filter>
     </ClCompile>
     <ClCompile Include="CMenuBar.cpp">
-      <Filter>소스 파일\My</Filter>
-    </ClCompile>
-    <ClCompile Include="MainFrm.cpp">
-      <Filter>소스 파일\My</Filter>
-    </ClCompile>
-    <ClCompile Include="MyView.cpp">
       <Filter>소스 파일\My</Filter>
     </ClCompile>
     <ClCompile Include="My.cpp">
@@ -101,6 +98,15 @@
     <ClCompile Include="TypeDlg.cpp">
       <Filter>소스 파일\My</Filter>
     </ClCompile>
+    <ClCompile Include="DrawView.cpp">
+      <Filter>소스 파일\My</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>소스 파일\etc</Filter>
+    </ClCompile>
+    <ClCompile Include="MyView.cpp">
+      <Filter>소스 파일\etc</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="My.rc">
@@ -109,6 +115,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\My.rc2">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\AddRect.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Remove.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\AddCircle.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Move.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Erase.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Fill.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\Pipette.cur">
       <Filter>리소스 파일</Filter>
     </None>
   </ItemGroup>
