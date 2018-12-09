@@ -208,7 +208,7 @@ void Setting::AddShape(CPoint pt1, CPoint pt2) {
 // 도형 지우기
 void Setting::DeleteShape(int index) {
 
-	if (index >= count) {
+	if (index < 0 || index >= count) {
 
 		return;
 	}

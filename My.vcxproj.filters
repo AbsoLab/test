@@ -72,6 +72,9 @@
     <ClInclude Include="DrawView.h">
       <Filter>헤더 파일\My</Filter>
     </ClInclude>
+    <ClInclude Include="ThicknessDlg.h">
+      <Filter>헤더 파일\My</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Shape.cpp">
@@ -106,6 +109,9 @@
     </ClCompile>
     <ClCompile Include="MyView.cpp">
       <Filter>소스 파일\etc</Filter>
+    </ClCompile>
+    <ClCompile Include="ThicknessDlg.cpp">
+      <Filter>소스 파일\My</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -147,12 +153,6 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="res\Toolbar.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="..\..\..\Desktop\rect.bmp">
-      <Filter>리소스 파일</Filter>
-    </Image>
-    <Image Include="..\..\..\Desktop\rect2.bmp">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>

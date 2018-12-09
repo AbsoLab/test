@@ -191,6 +191,7 @@
     <ClInclude Include="Shape.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="ThicknessDlg.h" />
     <ClInclude Include="TypeDlg.h" />
   </ItemGroup>
   <ItemGroup>
@@ -209,6 +210,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="ThicknessDlg.cpp" />
     <ClCompile Include="TypeDlg.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -225,8 +227,6 @@
     <None Include="res\Remove.cur" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\..\..\Desktop\rect.bmp" />
-    <Image Include="..\..\..\Desktop\rect2.bmp" />
     <Image Include="res\My.ico" />
     <Image Include="res\MyDoc.ico" />
     <Image Include="res\Toolbar.bmp" />
