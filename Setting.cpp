@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "stdafx.h"
 #include "Setting.h"
 #include "Shape.h"
@@ -197,15 +198,20 @@ void Setting::Drag(CPoint pt1, CPoint pt2)
 bool Setting::FileOpen(CString path)
 {
 	char buf[1024];
+	char change_path[1024];
 
-	FILE *fp = fopen((LPSTR)(LPCTSTR)path, "r");
+	WideCharToMultiByte(CP_ACP, 0, path, -1, change_path, 1024, NULL, NULL);
 
-	if (fp == NULL) {
+	FILE *fp;
+	
+	if ((fp = fopen(change_path, "r")) == NULL) {
 
 		return false;
 	}
 
 	count = 0;
+	select = -1;
+
 	while (fgets(buf, 1024, fp) != NULL) {
 
 		shape[count++] = new Shape(buf);
@@ -219,17 +225,27 @@ bool Setting::FileOpen(CString path)
 // 파일 저장
 bool Setting::FileSave(CString path)
 {
-	FILE *fp = fopen((LPSTR)(LPCTSTR)path, "w");
+	char change_path[1024];
+
+	WideCharToMultiByte(CP_ACP, 0, path, -1, change_path, 1024, NULL, NULL);
+
+	FILE *fp;
 	
-	if (fp == NULL) {
+	if ((fp = fopen(change_path, "w")) == NULL) {
 
 		return false;
 	}
 
 	for (int i = 0; i < count; i++) {
 
-		fputs(shape[i]->ChageFileData(), fp);
+		fprintf(fp, "%s", shape[i]->ChageFileData());
+
+		if (i + 1 != count) {
+			fputs("\n", fp);
+		}
 	}
+
+	fclose(fp);
 
 	return true;
 }

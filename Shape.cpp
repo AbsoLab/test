@@ -16,13 +16,14 @@ Shape::Shape(CPoint pt1, CPoint pt2, int type, int line_color, int line_opt, int
 	this->fill_opt = fill_color;
 }
 
-Shape::Shape(char* str)
+Shape::Shape(char *str)
 {
 	char* token[10];
 
-	for (int i = 0; i < 10; i++) {
+	token[0] = strtok(str, ":");
+	for (int i = 1; i < 10; i++) {
 
-		token[i] = strtok(str, ":");
+		token[i] = strtok(NULL, ":");
 	}
 
 	size = CRect(atoi(token[0]), atoi(token[1]), atoi(token[2]), atoi(token[3]));
