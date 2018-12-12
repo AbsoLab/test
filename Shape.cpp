@@ -228,6 +228,7 @@ void Shape::SetInitPoint() {
 	case 2:
 		vertex[0] = CPoint(size.left, size.top);
 		vertex[1] = CPoint(size.right, size.bottom);
+		break;
 
 	case 3:
 		vertex[0] = CPoint((size.left + size.right) / 2, size.top);
@@ -245,10 +246,10 @@ void Shape::SetInitPoint() {
 
 	case 5:
 		vertex[0] = CPoint((size.left + size.right) / 2, size.top);
-		vertex[1] = CPoint(size.right, size.top + (size.right - size.left) / 2 * (0.726542528));
-		vertex[2] = CPoint((size.left + size.right)/2 + (0.32491969623)*(size.right - size.left), size.bottom);
-		vertex[3] = CPoint((size.left + size.right)/2 - (0.32491969623)*(size.right - size.left), size.bottom);
-		vertex[4] = CPoint(size.left, size.top + (size.right - size.left) / 2 * (0.726542528));
+		vertex[1] = CPoint(size.right, size.top + (size.bottom - size.top) * 0.4);
+		vertex[2] = CPoint(size.left + 0.8*(size.right - size.left), size.bottom);
+		vertex[3] = CPoint(size.left + 0.2*(size.right - size.left), size.bottom);
+		vertex[4] = CPoint(size.left, size.top + (size.bottom - size.top) * (0.4));
 		break;
 
 	case 6:
