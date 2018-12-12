@@ -216,7 +216,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\AddCircle.cur" />
+    <None Include="res\AddHexa.cur" />
+    <None Include="res\AddOcta.cur" />
+    <None Include="res\AddPenta.cur" />
     <None Include="res\AddRect.cur" />
+    <None Include="res\AddTri.cur" />
     <None Include="res\Erase.cur" />
     <None Include="res\Fill.cur" />
     <None Include="res\Move.cur" />

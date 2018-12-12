@@ -138,6 +138,18 @@
     <None Include="res\Pipette.cur">
       <Filter>리소스 파일</Filter>
     </None>
+    <None Include="res\AddTri.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\AddPenta.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\AddHexa.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="res\AddOcta.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\MyDoc.ico">
