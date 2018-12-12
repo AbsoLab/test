@@ -197,10 +197,6 @@ void Setting::Drag(CPoint pt1, CPoint pt2)
 	} else if (0 < type && type < 10) {
 
 		AddShape(pt1, pt2);
-	
-	} else if (10 < type && type < 100) {
-		
-
 	}
 }
 
