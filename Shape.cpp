@@ -225,6 +225,9 @@ const char* Shape::ChageFileData()
 void Shape::SetInitPoint() {
 
 	switch (type) {
+	case 2:
+		vertex[0] = CPoint(size.left, size.top);
+		vertex[1] = CPoint(size.right, size.bottom);
 
 	case 3:
 		vertex[0] = CPoint((size.left + size.right) / 2, size.top);
@@ -256,5 +259,17 @@ void Shape::SetInitPoint() {
 		vertex[4] = CPoint(size.left + (size.right - size.left) * 0.25, size.bottom);
 		vertex[5] = CPoint(size.left, (size.top + size.bottom) / 2);
 		break;
+
+	case 8:
+		vertex[0] = CPoint(size.left + (size.right - size.left) * 0.33, size.top);
+		vertex[1] = CPoint(size.left + (size.right - size.left) * 0.67, size.top);
+		vertex[2] = CPoint(size.right, size.top + (size.bottom - size.top) * 0.33);
+		vertex[3] = CPoint(size.right, size.top + (size.bottom - size.top) * 0.67);
+		vertex[4] = CPoint(size.left + (size.right - size.left) * 0.67, size.bottom);
+		vertex[5] = CPoint(size.left + (size.right - size.left) * 0.33, size.bottom);
+		vertex[6] = CPoint(size.left, size.top + (size.bottom - size.top) * 0.67);
+		vertex[7] = CPoint(size.left, size.top + (size.bottom - size.top) * 0.33);
+		break;
+
 	}
 }
