@@ -204,6 +204,40 @@ void Setting::Drag(CPoint pt1, CPoint pt2)
 	}
 }
 
+// 순서 맨 앞으로
+void Setting::SetTop()
+{
+	if (select == -1) {
+
+		return;
+	}
+
+	Shape* temp = shape[select];
+
+	for (int i = select; i < count - 1; i++) {
+
+		shape[i] = shape[i + 1];
+	}
+	shape[count - 1] = temp;
+}
+
+// 순서 맨 뒤로
+void Setting::SetBottom()
+{
+	if (select == -1) {
+
+		return;
+	}
+
+	Shape* temp = shape[select];
+
+	for (int i = select; i > 0; i--) {
+
+		shape[i] = shape[i -1];
+	}
+	shape[0] = temp;
+}
+
 // 파일 열기
 bool Setting::FileOpen(CString path)
 {

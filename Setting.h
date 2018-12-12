@@ -54,6 +54,12 @@ public:
 	// 드래그 동작
 	void Drag(CPoint pt1, CPoint pt2);
 
+	// 순서 맨 앞으로 (배열 상 맨 뒤)
+	void SetTop();
+
+	// 순서 맨 뒤로 (배열 상 맨 앞)
+	void SetBottom();
+
 	// 파일 열기
 	bool FileOpen(CString path);
 
