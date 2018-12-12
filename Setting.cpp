@@ -66,6 +66,16 @@ const int Setting::GetColor()
 	return color;
 }
 
+const int Setting::GetThick()
+{
+	return thickness;
+}
+
+const int Setting::GetLineOpt()
+{
+	return line_opt;
+}
+
 bool Setting::IsSelected()
 {
 	if (select == -1) {

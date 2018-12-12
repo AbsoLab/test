@@ -15,8 +15,8 @@ private:
 	int count;				// 그린 도형 개수
 
 	int type;				// 선택된 도구
-	int thickness;			// 선택된 두께 (1~)
 	int color;				// 선택된 색깔 (RGB(r,g,b) 형태)
+	int thickness;			// 선택된 두께 (1~)
 	int line_opt;			// 테두리 옵션
 	int fill_opt;			// 채우기 옵션
 
@@ -35,6 +35,8 @@ public:
 	const int GetCount();
 	const int GetType();
 	const int GetColor();
+	const int GetThick();
+	const int GetLineOpt();
 	bool IsSelected();
 
 	// 필드값 설정

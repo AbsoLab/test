@@ -69,9 +69,6 @@
     <ClInclude Include="DrawView.h">
       <Filter>헤더 파일\My</Filter>
     </ClInclude>
-    <ClInclude Include="ThicknessDlg.h">
-      <Filter>헤더 파일\My</Filter>
-    </ClInclude>
     <ClInclude Include="LineDlg.h">
       <Filter>헤더 파일\My</Filter>
     </ClInclude>
@@ -106,9 +103,6 @@
     </ClCompile>
     <ClCompile Include="MyView.cpp">
       <Filter>소스 파일\etc</Filter>
-    </ClCompile>
-    <ClCompile Include="ThicknessDlg.cpp">
-      <Filter>소스 파일\My</Filter>
     </ClCompile>
     <ClCompile Include="LineDlg.cpp">
       <Filter>소스 파일\My</Filter>
