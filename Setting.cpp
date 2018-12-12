@@ -264,7 +264,7 @@ CRect* Setting::SetResizeRect(int index)
 	// Å×µÎ¸® 
 	CPoint pt[4];
 
-	CRect rt = shape[index]->GetRect();
+	CRect rt = shape[index]->GetSize();
 
 	pt[0] = rt.TopLeft();
 	pt[1] = CPoint(rt.right, rt.top);

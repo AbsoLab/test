@@ -8,8 +8,8 @@ public:
 	Shape(char* str);
 
 private:
-	CRect size;			// Shape의 크기
-
+	CRect size;			// 도형의 크기
+	CPoint *vertex;		// 도형의 꼭짓점 좌표
 	int type;			// 타입 (사각, 원, 삼각, 오각, 육각, 팔각)
 
 	int line_color;		// 테두리 색깔
@@ -21,7 +21,8 @@ private:
 
 public:
 	// 필드값 반환
-	const CRect GetRect();
+	const CRect GetSize();
+	CPoint* GetVertex();
 	const int GetType();
 	const int GetLineColor();
 	const int GetLineOpt();
@@ -51,4 +52,8 @@ public:
 
 	// 데이터 저장용 문자열
 	const char* ChageFileData();
+
+private:
+	// 다각형의 꼭짓점의 좌표 설정
+	void SetInitPoint();
 };
