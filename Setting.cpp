@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "stdafx.h"
 #include "Setting.h"
 #include "Shape.h"
@@ -9,10 +10,20 @@ Setting::Setting() {
 
 	count = 0;
 
-	selected_type = 0;
-	selected_color = RGB(0, 0, 0);
-	selected_thickness = 1;
-	selected_shape = -1;
+	type = 0;
+	thickness = 1;
+	color = RGB(0, 0, 0);
+	line_opt = 0;
+	fill_opt = 0;
+
+	select = -1;
+	resizeRect = NULL;
+}
+
+Setting::~Setting()
+{
+	if (shape != NULL) { delete(shape); }
+	if (resizeRect != NULL) { delete(resizeRect); }
 }
 
 
@@ -46,18 +57,18 @@ const int Setting::GetCount()
 
 const int Setting::GetType() { 
 	
-	return selected_type;
+	return type;
 
 }
 
 const int Setting::GetColor()
 {
-	return selected_color;
+	return color;
 }
 
 bool Setting::IsSelected()
 {
-	if (selected_shape == -1) {
+	if (select == -1) {
 
 		return false;
 	}
@@ -68,14 +79,16 @@ bool Setting::IsSelected()
 // 필드값 설정
 void Setting::SetType(int type) {
 
-		selected_type = type;
+	this->type = type;
 }
 
 void Setting::SetThickness(int thickness)
 {
-	if (1 <= thickness && thickness <= 5) {
+	this->thickness = thickness;
 
-		selected_thickness = thickness;
+	if (select != -1) {
+
+		shape[select]->SetThickness(thickness);
 	}
 }
 
@@ -83,7 +96,32 @@ void Setting::SetColor(int color)
 {
 	if (RGB(0, 0, 0) <= color && color <= RGB(255, 255, 255)) {
 
-		selected_color = color;
+		this->color = color;
+	}
+
+	if (select != -1) {
+
+		shape[select]->SetLineColor(color);
+	}
+}
+
+void Setting::SetLineOpt(int line_opt)
+{
+	this->line_opt = line_opt;
+
+	if (select != -1) {
+
+		shape[select]->SetLineOpt(line_opt);
+	}
+}
+
+void Setting::SetFillOpt(int fill_opt)
+{
+	this->fill_opt = fill_opt;
+
+	if (select != -1) {
+
+		shape[select]->SetFillOpt(fill_opt);
 	}
 }
 
@@ -92,27 +130,28 @@ void Setting::SetColor(int color)
 // 도형 선택
 void Setting::SelectShape(CPoint pt, int color)
 {
-	selected_shape = SearchShape(pt);
+	select = SearchShape(pt);
 
-	resizeRect = SetResizeRect(selected_shape);
+	if (resizeRect != NULL) { delete(resizeRect); }
+	resizeRect = SetResizeRect(select);
 
-	switch (selected_type) {
+	switch (type) {
 
 	case 10:
 		//지우기 동작
-		DeleteShape(selected_shape);
-		selected_shape = -1;
+		DeleteShape(select);
+		select = -1;
 		resizeRect = NULL;
 		break;
 
 	case 11:
 		// 피펫
-		selected_color = color;
+		this->color = color;
 		break;
 
 	case 12:
 		// 채우기
-		FillShape();
+		FillShape(select);
 		break;
 	}
 }
@@ -120,7 +159,7 @@ void Setting::SelectShape(CPoint pt, int color)
 // 드래그 동작
 void Setting::Drag(CPoint pt1, CPoint pt2)
 {
-	if (selected_type == 0) {
+	if (type == 0) {
 
 		int index;
 		
@@ -145,25 +184,70 @@ void Setting::Drag(CPoint pt1, CPoint pt2)
 			return;
 		}
 
-	} else if (0 < selected_type && selected_type < 10) {
+	} else if (0 < type && type < 10) {
 
 		AddShape(pt1, pt2);
 	
-	} else if (10 < selected_type && selected_type < 100) {
+	} else if (10 < type && type < 100) {
 		
 
 	}
 }
 
-// 도형 색칠하기
-void Setting::FillShape()
+// 파일 열기
+bool Setting::FileOpen(CString path)
 {
-	if (selected_shape == -1) {
+	char buf[1024];
+	char change_path[1024];
 
-		return;
+	WideCharToMultiByte(CP_ACP, 0, path, -1, change_path, 1024, NULL, NULL);
+
+	FILE *fp;
+	
+	if ((fp = fopen(change_path, "r")) == NULL) {
+
+		return false;
 	}
 
-	shape[selected_shape]->SetFillColor(selected_color);
+	count = 0;
+	select = -1;
+
+	while (fgets(buf, 1024, fp) != NULL) {
+
+		shape[count++] = new Shape(buf);
+	}
+
+	fclose(fp);
+
+	return true;
+}
+
+// 파일 저장
+bool Setting::FileSave(CString path)
+{
+	char change_path[1024];
+
+	WideCharToMultiByte(CP_ACP, 0, path, -1, change_path, 1024, NULL, NULL);
+
+	FILE *fp;
+	
+	if ((fp = fopen(change_path, "w")) == NULL) {
+
+		return false;
+	}
+
+	for (int i = 0; i < count; i++) {
+
+		fprintf(fp, "%s", shape[i]->ChageFileData());
+
+		if (i + 1 != count) {
+			fputs("\n", fp);
+		}
+	}
+
+	fclose(fp);
+
+	return true;
 }
 
 
@@ -202,7 +286,7 @@ CRect* Setting::SetResizeRect(int index)
 // 도형 추가
 void Setting::AddShape(CPoint pt1, CPoint pt2) {
 
-	shape[count++] = new Shape(pt1, pt2, selected_type, selected_thickness, selected_color, -1);
+	shape[count++] = new Shape(pt1, pt2, type, color, line_opt, thickness, -1, fill_opt);
 }
 
 // 도형 지우기
@@ -232,7 +316,18 @@ void Setting::MoveShape(CPoint pt1, CPoint pt2, int index) {
 // 도형 크기 조절
 void Setting::ResizeShape(CPoint pt, int index)
 {
-	shape[selected_shape]->SetSize(pt, index);
+	shape[select]->SetSize(pt, index);
+}
+
+// 도형 색칠하기
+void Setting::FillShape(int index)
+{
+	if (index == -1) {
+
+		return;
+	}
+
+	shape[index]->SetFillColor(color);
 }
 
 
@@ -253,7 +348,7 @@ int Setting::SearchShape(CPoint pt)
 // 크기 조절버튼 검색
 int Setting::SearchResizing(CPoint pt)
 {
-	if (selected_shape == -1) {
+	if (select == -1) {
 
 		return -1;
 	}

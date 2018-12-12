@@ -57,9 +57,6 @@
     <ClInclude Include="targetver.h">
       <Filter>헤더 파일\etc</Filter>
     </ClInclude>
-    <ClInclude Include="ColorDlg.h">
-      <Filter>헤더 파일\My</Filter>
-    </ClInclude>
     <ClInclude Include="TypeDlg.h">
       <Filter>헤더 파일\My</Filter>
     </ClInclude>
@@ -73,6 +70,9 @@
       <Filter>헤더 파일\My</Filter>
     </ClInclude>
     <ClInclude Include="ThicknessDlg.h">
+      <Filter>헤더 파일\My</Filter>
+    </ClInclude>
+    <ClInclude Include="LineDlg.h">
       <Filter>헤더 파일\My</Filter>
     </ClInclude>
   </ItemGroup>
@@ -95,9 +95,6 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>소스 파일\etc</Filter>
     </ClCompile>
-    <ClCompile Include="ColorDlg.cpp">
-      <Filter>소스 파일\My</Filter>
-    </ClCompile>
     <ClCompile Include="TypeDlg.cpp">
       <Filter>소스 파일\My</Filter>
     </ClCompile>
@@ -111,6 +108,9 @@
       <Filter>소스 파일\etc</Filter>
     </ClCompile>
     <ClCompile Include="ThicknessDlg.cpp">
+      <Filter>소스 파일\My</Filter>
+    </ClCompile>
+    <ClCompile Include="LineDlg.cpp">
       <Filter>소스 파일\My</Filter>
     </ClCompile>
   </ItemGroup>

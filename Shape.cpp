@@ -1,16 +1,40 @@
 #include "stdafx.h"
 #include "Shape.h"
 
+
 // 생성자
-Shape::Shape(CPoint pt1, CPoint pt2, int type, int thickness, int line_color, int fill_color) {
+Shape::Shape(CPoint pt1, CPoint pt2, int type, int line_color, int line_opt, int thickness, int fill_color, int fill_opt) {
 	
 	size = CRect(pt1, pt2);
 	SortPosition();
 
 	this->type = type;
-	this->thickness = thickness;
 	this->line_color = line_color;
+	this->line_opt = line_opt;
+	this->thickness = thickness;
 	this->fill_color = fill_color;
+	this->fill_opt = fill_color;
+}
+
+Shape::Shape(char *str)
+{
+	char* token[10];
+
+	token[0] = strtok(str, ":");
+	for (int i = 1; i < 10; i++) {
+
+		token[i] = strtok(NULL, ":");
+	}
+
+	size = CRect(atoi(token[0]), atoi(token[1]), atoi(token[2]), atoi(token[3]));
+	SortPosition();
+
+	type = atoi(token[4]);
+	line_color = atoi(token[5]);
+	line_opt = atoi(token[6]);
+	thickness = atoi(token[7]);
+	fill_color = atoi(token[8]);
+	fill_opt = atoi(token[9]);
 }
 
 // 필드값 반환
@@ -24,6 +48,16 @@ const int Shape::GetType()
 	return type;
 }
 
+const int Shape::GetLineColor() {
+
+	return line_color;
+}
+
+const int Shape::GetLineOpt()
+{
+	return line_opt;
+}
+
 const int Shape::GetThickness() {
 
 	return thickness;
@@ -34,12 +68,22 @@ const int Shape::GetFillColor() {
 	return fill_color;
 }
 
-const int Shape::GetLineColor() {
-
-	return line_color;
+const int Shape::GetFillOpt()
+{
+	return fill_opt;
 }
 
 // 필드값 설정
+void Shape::SetLineColor(int line_color) {
+
+	this->line_color = line_color;
+}
+
+void Shape::SetLineOpt(int line_opt)
+{
+	this->line_opt = line_opt;
+}
+
 void Shape::SetThickness(int thickness) {
 
 	this->thickness = thickness;
@@ -50,9 +94,9 @@ void Shape::SetFillColor(int fill_color) {
 	this->fill_color = fill_color;
 }
 
-void Shape::SetLineColor(int line_color) {
-
-	this->line_color = line_color;
+void Shape::SetFillOpt(int fill_opt)
+{
+	this->fill_opt = fill_opt;
 }
 
 
@@ -133,4 +177,14 @@ void Shape::SortPosition()
 	}
 
 	size = CRect(pt1, pt2);
+}
+
+const char* Shape::ChageFileData()
+{
+	char str[1024];
+	sprintf(str, "%d:%d:%d:%d:%d:%d:%d:%d:%d:%d",
+		size.left, size.top, size.right, size.bottom,
+		type, line_color, line_opt, thickness, fill_color, fill_opt);
+
+	return str;
 }
